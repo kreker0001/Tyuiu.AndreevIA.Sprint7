@@ -23,8 +23,8 @@ namespace Tyuiu.AndreevIA.Sprint7.Project.V2
         {
 
 
-            string login = textBox1_SADlog.Text;
-            string password = textBox2_SADpass.Text;
+            string login = textBox1_AIAlog.Text;
+            string password = textBox2_AIApass.Text;
 
             if (CheckCredentials(login, password))
             {
@@ -62,17 +62,17 @@ namespace Tyuiu.AndreevIA.Sprint7.Project.V2
 
 
 
-        private void toolStripMenuItemExit_SAD_Click(object sender, EventArgs e)
+        private void toolStripMenuItemExit_AIA_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void toolStripMenuItemAbout_SAD_Click(object sender, EventArgs e)
+        private void toolStripMenuItemAbout_AIA_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void toolStripMenuItemInstruction_SAD_Click(object sender, EventArgs e)
+        private void toolStripMenuItemInstruction_AIA_Click(object sender, EventArgs e)
         { 
 
         }
@@ -87,12 +87,12 @@ namespace Tyuiu.AndreevIA.Sprint7.Project.V2
 
         }
 
-        private void toolStripMenuItemInfo_SAD_Click(object sender, EventArgs e)
+        private void toolStripMenuItemInfo_AIA_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void labelMain_SAD_Click(object sender, EventArgs e)
+        private void labelMain_AIA_Click(object sender, EventArgs e)
         {
 
         }

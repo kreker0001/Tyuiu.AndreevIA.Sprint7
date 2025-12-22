@@ -43,38 +43,38 @@ namespace Tyuiu.AndreevIA.Sprint7.Project.V2
         string openFilePath;
         int cols, rows;
 
-        private void aboutProgramToolStripMenuItem_SAD_Click(object sender, EventArgs e)
+        private void aboutProgramToolStripMenuItem_AIA_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Эта программа содержит в себе данные:\r* ·        номер, название, адрес и телефон магазина;", "О программе", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        private void buttonOpen_SAD_Click(object sender, EventArgs e)
+        private void buttonOpen_AIA_Click(object sender, EventArgs e)
         {
-            openFileDialogTable_SAD.ShowDialog();
-            openFilePath = openFileDialogTable_SAD.FileName;
+            openFileDialogTable_AIA.ShowDialog();
+            openFilePath = openFileDialogTable_AIA.FileName;
 
             string[,] arrayValues = ds.LoadFromFileData(openFilePath);
-            dataGridViewTableOrders_SAD.ColumnCount = cols = arrayValues.GetLength(1);
-            dataGridViewTableOrders_SAD.RowCount = rows = arrayValues.GetLength(0);
+            dataGridViewTableOrders_AIA.ColumnCount = cols = arrayValues.GetLength(1);
+            dataGridViewTableOrders_AIA.RowCount = rows = arrayValues.GetLength(0);
 
             for (int i = 0; i < rows; i++)
             {
                 for (int j = 0; j < cols; j++)
                 {
-                    dataGridViewTableOrders_SAD.Rows[i].Cells[j].Value = arrayValues[i, j];
+                    dataGridViewTableOrders_AIA.Rows[i].Cells[j].Value = arrayValues[i, j];
                 }
             }
-            if (dataGridViewTableOrders_SAD.Rows.Count != 0) { buttonRemoveRows_SAD.Enabled = true; }
+            if (dataGridViewTableOrders_AIA.Rows.Count != 0) { buttonRemoveRows_AIA.Enabled = true; }
         }
 
-        private void buttonDownload_SAD_Click(object sender, EventArgs e)
+        private void buttonDownload_AIA_Click(object sender, EventArgs e)
         {
-            saveFileDialogTable_SAD.FileName = "DataBase.csv";
-            saveFileDialogTable_SAD.InitialDirectory = Directory.GetCurrentDirectory();
-            saveFileDialogTable_SAD.ShowDialog();
+            saveFileDialogTable_AIA.FileName = "DataBase.csv";
+            saveFileDialogTable_AIA.InitialDirectory = Directory.GetCurrentDirectory();
+            saveFileDialogTable_AIA.ShowDialog();
 
 
-            string path = saveFileDialogTable_SAD.FileName;
+            string path = saveFileDialogTable_AIA.FileName;
 
             FileInfo fileInfo = new FileInfo(path);
             bool fileExists = fileInfo.Exists;
@@ -82,8 +82,8 @@ namespace Tyuiu.AndreevIA.Sprint7.Project.V2
             {
                 File.Delete(path);
             }
-            int rows = dataGridViewTableOrders_SAD.RowCount;
-            int columns = dataGridViewTableOrders_SAD.ColumnCount;
+            int rows = dataGridViewTableOrders_AIA.RowCount;
+            int columns = dataGridViewTableOrders_AIA.ColumnCount;
             string str = "";
 
             for (int i = 0; i < rows; i++)
@@ -92,11 +92,11 @@ namespace Tyuiu.AndreevIA.Sprint7.Project.V2
                 {
                     if (j != columns - 1)
                     {
-                        str = str + dataGridViewTableOrders_SAD.Rows[i].Cells[j].Value + ";";
+                        str = str + dataGridViewTableOrders_AIA.Rows[i].Cells[j].Value + ";";
                     }
                     else
                     {
-                        str = str + dataGridViewTableOrders_SAD.Rows[i].Cells[j].Value;
+                        str = str + dataGridViewTableOrders_AIA.Rows[i].Cells[j].Value;
                     }
                 }
                 File.AppendAllText(path, str + Environment.NewLine);
@@ -106,58 +106,58 @@ namespace Tyuiu.AndreevIA.Sprint7.Project.V2
         }
 
 
-        private void buttonAdd_SAD_Click(object sender, EventArgs e)
+        private void buttonAdd_AIA_Click(object sender, EventArgs e)
         {
-            dataGridViewTableOrders_SAD.Rows.Add();
-            buttonRemoveRows_SAD.Enabled = true;
+            dataGridViewTableOrders_AIA.Rows.Add();
+            buttonRemoveRows_AIA.Enabled = true;
         }
 
-        private void buttonInfo_SAD_Click(object sender, EventArgs e)
+        private void buttonInfo_AIA_Click(object sender, EventArgs e)
         {
-            //FormAbout formAbout = new FormAbout();
-            //formAbout.ShowDialog();
+            FormAbout formAbout = new FormAbout();
+            formAbout.ShowDialog();
         }
 
-        private void toolStripMenuItemExit_SAD_Click(object sender, EventArgs e)
+        private void toolStripMenuItemExit_AIA_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void buttonRemoveRows_SAD_Click(object sender, EventArgs e)
+        private void buttonRemoveRows_AIA_Click(object sender, EventArgs e)
         {
-            int ind = dataGridViewTableOrders_SAD.SelectedCells[0].RowIndex;
-            dataGridViewTableOrders_SAD.Rows.RemoveAt(ind);
-            if (dataGridViewTableOrders_SAD.Rows.Count == 0) { buttonRemoveRows_SAD.Enabled = false; }
+            int ind = dataGridViewTableOrders_AIA.SelectedCells[0].RowIndex;
+            dataGridViewTableOrders_AIA.Rows.RemoveAt(ind);
+            if (dataGridViewTableOrders_AIA.Rows.Count == 0) { buttonRemoveRows_AIA.Enabled = false; }
         }
 
-        private void buttonFilter_SAD_Click(object sender, EventArgs e)
+        private void buttonFilter_AIA_Click(object sender, EventArgs e)
         {
-            foreach (DataGridViewRow r in dataGridViewTableOrders_SAD.Rows)
+            foreach (DataGridViewRow r in dataGridViewTableOrders_AIA.Rows)
             {
-                if ((r.Cells[comboBoxColsNames_SAD.SelectedIndex - 1].Value).ToString().ToUpper().Contains(textBoxFilter_SAD.Text.ToUpper()))
+                if ((r.Cells[comboBoxColsNames_AIA.SelectedIndex - 1].Value).ToString().ToUpper().Contains(textBoxFilter_AIA.Text.ToUpper()))
                 {
-                    dataGridViewTableOrders_SAD.Rows[r.Index].Visible = true;
-                    dataGridViewTableOrders_SAD.Rows[r.Index].Selected = true;
+                    dataGridViewTableOrders_AIA.Rows[r.Index].Visible = true;
+                    dataGridViewTableOrders_AIA.Rows[r.Index].Selected = true;
                 }
                 else
                 {
-                    dataGridViewTableOrders_SAD.CurrentCell = null;
-                    dataGridViewTableOrders_SAD.Rows[r.Index].Visible = false;
+                    dataGridViewTableOrders_AIA.CurrentCell = null;
+                    dataGridViewTableOrders_AIA.Rows[r.Index].Visible = false;
                 }
             }
         }
 
-        private void comboBoxColsNames_SAD_SelectedIndexChanged(object sender, EventArgs e)
+        private void comboBoxColsNames_AIA_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (comboBoxColsNames_SAD.SelectedIndex != 0)
+            if (comboBoxColsNames_AIA.SelectedIndex != 0)
             {
-                textBoxFilter_SAD.Enabled = true;
-                buttonFilter_SAD.Enabled = true;
+                textBoxFilter_AIA.Enabled = true;
+                buttonFilter_AIA.Enabled = true;
             }
             else
             {
-                textBoxFilter_SAD.Enabled = false;
-                buttonFilter_SAD.Enabled = false;
+                textBoxFilter_AIA.Enabled = false;
+                buttonFilter_AIA.Enabled = false;
             }
         }
 
@@ -166,7 +166,7 @@ namespace Tyuiu.AndreevIA.Sprint7.Project.V2
             chart1.Series.Clear();
             var series = new System.Windows.Forms.DataVisualization.Charting.Series("Ежемесячная выручка");
             series.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Column;
-            foreach (DataGridViewRow row in this.dataGridViewTableOrders_SAD.Rows)
+            foreach (DataGridViewRow row in this.dataGridViewTableOrders_AIA.Rows)
             {
                 if (!row.IsNewRow && row.Cells[3] != null && row.Cells[3].Value != null)
                 {
@@ -178,22 +178,22 @@ namespace Tyuiu.AndreevIA.Sprint7.Project.V2
             this.chart1.Series.Add(series);
         }
 
-        private void toolStripMenuItemInstruction_SAD_Click(object sender, EventArgs e)
+        private void toolStripMenuItemInstruction_AIA_Click(object sender, EventArgs e)
         {
             //FormInstruction formInstruction = new FormInstruction();
             //formInstruction.ShowDialog();
         }
 
-        private void textBoxSearch_SAD_TextChanged_1(object sender, EventArgs e)
+        private void textBoxSearch_AIA_TextChanged_1(object sender, EventArgs e)
         {
-            if (textBoxSearch_SAD != null)
+            if (textBoxSearch_AIA != null)
             {
-                string currentText = textBoxSearch_SAD.Text;
-                foreach (DataGridViewRow row in dataGridViewTableOrders_SAD.Rows)
+                string currentText = textBoxSearch_AIA.Text;
+                foreach (DataGridViewRow row in dataGridViewTableOrders_AIA.Rows)
                 {
                     foreach (DataGridViewCell cell in row.Cells)
                     {
-                        if (cell.Value != null && textBoxSearch_SAD.Text != string.Empty && cell.Value.ToString().Contains(textBoxSearch_SAD.Text))
+                        if (cell.Value != null && textBoxSearch_AIA.Text != string.Empty && cell.Value.ToString().Contains(textBoxSearch_AIA.Text))
                         {
                             cell.Style.BackColor = Color.LightGreen;
                         }
@@ -206,16 +206,16 @@ namespace Tyuiu.AndreevIA.Sprint7.Project.V2
             }
         }
 
-        private void toolStripTextBoxSearch_SAD_TextChanged(object sender, EventArgs e)
+        private void toolStripTextBoxSearch_AIA_TextChanged(object sender, EventArgs e)
         {
-            if (toolStripTextBoxSearch_SAD != null)
+            if (toolStripTextBoxSearch_AIA != null)
             {
-                string currentText = toolStripTextBoxSearch_SAD.Text;
-                foreach (DataGridViewRow row in dataGridViewTableOrders_SAD.Rows)
+                string currentText = toolStripTextBoxSearch_AIA.Text;
+                foreach (DataGridViewRow row in dataGridViewTableOrders_AIA.Rows)
                 {
                     foreach (DataGridViewCell cell in row.Cells)
                     {
-                        if (cell.Value != null && toolStripTextBoxSearch_SAD.Text != string.Empty && cell.Value.ToString().Contains(toolStripTextBoxSearch_SAD.Text))
+                        if (cell.Value != null && toolStripTextBoxSearch_AIA.Text != string.Empty && cell.Value.ToString().Contains(toolStripTextBoxSearch_AIA.Text))
                         {
                             cell.Style.BackColor = Color.Yellow;
                         }
@@ -239,12 +239,12 @@ namespace Tyuiu.AndreevIA.Sprint7.Project.V2
 
         }
 
-        private void labelSearch_SAD_Click(object sender, EventArgs e)
+        private void labelSearch_AIA_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void textBoxFilter_SAD_TextChanged(object sender, EventArgs e)
+        private void textBoxFilter_AIA_TextChanged(object sender, EventArgs e)
         {
 
         }
@@ -276,13 +276,13 @@ namespace Tyuiu.AndreevIA.Sprint7.Project.V2
 
 
 
-        private void dataGridViewTable_SAD_RowPrePaint(object sender, DataGridViewRowPrePaintEventArgs e)
+        private void dataGridViewTable_AIA_RowPrePaint(object sender, DataGridViewRowPrePaintEventArgs e)
         {
             int index = e.RowIndex;
             string indexStr = (index).ToString();
-            object header = this.dataGridViewTableOrders_SAD.Rows[index].HeaderCell.Value;
+            object header = this.dataGridViewTableOrders_AIA.Rows[index].HeaderCell.Value;
             if (header == null || !header.Equals(indexStr))
-                this.dataGridViewTableOrders_SAD.Rows[index].HeaderCell.Value = indexStr;
+                this.dataGridViewTableOrders_AIA.Rows[index].HeaderCell.Value = indexStr;
         }
 
     }

@@ -56,11 +56,9 @@ namespace Tyuiu.AndreevIA.Sprint7.Project.V2
             tabPageOrderData_AIA = new TabPage();
             groupBoxMovesOrders_AIA = new GroupBox();
             groupBox5 = new GroupBox();
-            textBoxFilter_AIA = new TextBox();
-            groupBox4 = new GroupBox();
-            textBoxSearch_AIA = new TextBox();
-            groupBox3 = new GroupBox();
             comboBoxColsNames_AIA = new ComboBox();
+            textBoxFilter_AIA = new TextBox();
+            buttonFilter_AIA = new Button();
             groupBox1 = new GroupBox();
             buttonRemoveRows_AIA = new Button();
             buttonAddOrders_AIA = new Button();
@@ -74,7 +72,6 @@ namespace Tyuiu.AndreevIA.Sprint7.Project.V2
             PriceOrder_AIA = new DataGridViewTextBoxColumn();
             Column1 = new DataGridViewTextBoxColumn();
             NameOrder_AIA = new DataGridViewTextBoxColumn();
-            buttonFilter_AIA = new Button();
             tabControl_AIA = new TabControl();
             splitter1 = new Splitter();
             menuStrip_AIA.SuspendLayout();
@@ -83,8 +80,6 @@ namespace Tyuiu.AndreevIA.Sprint7.Project.V2
             tabPageOrderData_AIA.SuspendLayout();
             groupBoxMovesOrders_AIA.SuspendLayout();
             groupBox5.SuspendLayout();
-            groupBox4.SuspendLayout();
-            groupBox3.SuspendLayout();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewTableOrders_AIA).BeginInit();
@@ -183,17 +178,18 @@ namespace Tyuiu.AndreevIA.Sprint7.Project.V2
             // 
             tabPageStats_AIA.Controls.Add(buttonGetStats_AIA);
             tabPageStats_AIA.Controls.Add(chart1);
-            tabPageStats_AIA.Location = new Point(4, 30);
+            tabPageStats_AIA.Location = new Point(4, 22);
             tabPageStats_AIA.Margin = new Padding(4);
             tabPageStats_AIA.Name = "tabPageStats_AIA";
-            tabPageStats_AIA.Size = new Size(1307, 682);
+            tabPageStats_AIA.Size = new Size(1307, 690);
             tabPageStats_AIA.TabIndex = 2;
             tabPageStats_AIA.Text = "Статистика";
             tabPageStats_AIA.UseVisualStyleBackColor = true;
             // 
             // buttonGetStats_AIA
             // 
-            buttonGetStats_AIA.Location = new Point(514, 542);
+            buttonGetStats_AIA.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            buttonGetStats_AIA.Location = new Point(546, 641);
             buttonGetStats_AIA.Margin = new Padding(4);
             buttonGetStats_AIA.Name = "buttonGetStats_AIA";
             buttonGetStats_AIA.Size = new Size(199, 45);
@@ -204,6 +200,7 @@ namespace Tyuiu.AndreevIA.Sprint7.Project.V2
             // 
             // chart1
             // 
+            chart1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             chartArea1.Name = "Размер выручки";
             chart1.ChartAreas.Add(chartArea1);
             legend1.Name = "Размер выручки";
@@ -211,6 +208,7 @@ namespace Tyuiu.AndreevIA.Sprint7.Project.V2
             chart1.Location = new Point(10, 4);
             chart1.Margin = new Padding(4);
             chart1.Name = "chart1";
+            chart1.RightToLeft = RightToLeft.No;
             series1.ChartArea = "Размер выручки";
             series1.Legend = "Размер выручки";
             series1.MarkerSize = 1;
@@ -218,7 +216,7 @@ namespace Tyuiu.AndreevIA.Sprint7.Project.V2
             series1.XAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
             series1.YAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
             chart1.Series.Add(series1);
-            chart1.Size = new Size(1247, 531);
+            chart1.Size = new Size(1293, 629);
             chart1.TabIndex = 0;
             chart1.Text = "Размер выручки";
             chart1.Click += chart1_Click;
@@ -226,11 +224,11 @@ namespace Tyuiu.AndreevIA.Sprint7.Project.V2
             // tabPageOrderData_AIA
             // 
             tabPageOrderData_AIA.Controls.Add(groupBoxMovesOrders_AIA);
-            tabPageOrderData_AIA.Location = new Point(4, 30);
+            tabPageOrderData_AIA.Location = new Point(4, 22);
             tabPageOrderData_AIA.Margin = new Padding(4);
             tabPageOrderData_AIA.Name = "tabPageOrderData_AIA";
             tabPageOrderData_AIA.Padding = new Padding(4);
-            tabPageOrderData_AIA.Size = new Size(1307, 682);
+            tabPageOrderData_AIA.Size = new Size(1307, 690);
             tabPageOrderData_AIA.TabIndex = 1;
             tabPageOrderData_AIA.Text = "База данных сети магазинов";
             tabPageOrderData_AIA.UseVisualStyleBackColor = true;
@@ -240,86 +238,35 @@ namespace Tyuiu.AndreevIA.Sprint7.Project.V2
             groupBoxMovesOrders_AIA.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             groupBoxMovesOrders_AIA.BackColor = SystemColors.Menu;
             groupBoxMovesOrders_AIA.Controls.Add(groupBox5);
-            groupBoxMovesOrders_AIA.Controls.Add(groupBox4);
-            groupBoxMovesOrders_AIA.Controls.Add(groupBox3);
             groupBoxMovesOrders_AIA.Controls.Add(groupBox1);
             groupBoxMovesOrders_AIA.Controls.Add(label3);
             groupBoxMovesOrders_AIA.Controls.Add(groupBox2);
             groupBoxMovesOrders_AIA.Controls.Add(dataGridViewTableOrders_AIA);
-            groupBoxMovesOrders_AIA.Controls.Add(buttonFilter_AIA);
             groupBoxMovesOrders_AIA.Location = new Point(4, 0);
             groupBoxMovesOrders_AIA.Margin = new Padding(3, 2, 3, 2);
             groupBoxMovesOrders_AIA.Name = "groupBoxMovesOrders_AIA";
             groupBoxMovesOrders_AIA.Padding = new Padding(3, 2, 3, 2);
-            groupBoxMovesOrders_AIA.Size = new Size(1295, 634);
+            groupBoxMovesOrders_AIA.Size = new Size(1295, 642);
             groupBoxMovesOrders_AIA.TabIndex = 4;
             groupBoxMovesOrders_AIA.TabStop = false;
             // 
             // groupBox5
             // 
             groupBox5.AccessibleRole = AccessibleRole.None;
+            groupBox5.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             groupBox5.BackColor = SystemColors.Menu;
+            groupBox5.Controls.Add(comboBoxColsNames_AIA);
             groupBox5.Controls.Add(textBoxFilter_AIA);
-            groupBox5.Font = new System.Drawing.Font("Sitka Display", 9.749999F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            groupBox5.Location = new Point(759, 0);
+            groupBox5.Controls.Add(buttonFilter_AIA);
+            groupBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            groupBox5.Location = new Point(805, 4);
             groupBox5.Margin = new Padding(4);
             groupBox5.Name = "groupBox5";
             groupBox5.Padding = new Padding(4);
-            groupBox5.Size = new Size(256, 75);
+            groupBox5.Size = new Size(483, 75);
             groupBox5.TabIndex = 10;
             groupBox5.TabStop = false;
-            groupBox5.Text = "Введите ключ для фильтрации:";
-            // 
-            // textBoxFilter_AIA
-            // 
-            textBoxFilter_AIA.BackColor = SystemColors.Window;
-            textBoxFilter_AIA.Enabled = false;
-            textBoxFilter_AIA.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            textBoxFilter_AIA.Location = new Point(24, 34);
-            textBoxFilter_AIA.Margin = new Padding(4);
-            textBoxFilter_AIA.Name = "textBoxFilter_AIA";
-            textBoxFilter_AIA.Size = new Size(207, 24);
-            textBoxFilter_AIA.TabIndex = 1;
-            textBoxFilter_AIA.TextChanged += textBoxFilter_AIA_TextChanged;
-            // 
-            // groupBox4
-            // 
-            groupBox4.BackColor = SystemColors.Menu;
-            groupBox4.Controls.Add(textBoxSearch_AIA);
-            groupBox4.Font = new System.Drawing.Font("Sitka Display", 9.749999F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            groupBox4.Location = new Point(540, 0);
-            groupBox4.Margin = new Padding(4);
-            groupBox4.Name = "groupBox4";
-            groupBox4.Padding = new Padding(4);
-            groupBox4.Size = new Size(252, 75);
-            groupBox4.TabIndex = 9;
-            groupBox4.TabStop = false;
-            groupBox4.Text = "Введите ключ для поиска:\n";
-            // 
-            // textBoxSearch_AIA
-            // 
-            textBoxSearch_AIA.BackColor = SystemColors.Window;
-            textBoxSearch_AIA.Font = new System.Drawing.Font("Sitka Banner", 9.749999F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            textBoxSearch_AIA.Location = new Point(7, 36);
-            textBoxSearch_AIA.Margin = new Padding(4);
-            textBoxSearch_AIA.Name = "textBoxSearch_AIA";
-            textBoxSearch_AIA.Size = new Size(162, 24);
-            textBoxSearch_AIA.TabIndex = 1;
-            textBoxSearch_AIA.TextChanged += textBoxSearch_AIA_TextChanged_1;
-            // 
-            // groupBox3
-            // 
-            groupBox3.BackColor = SystemColors.Menu;
-            groupBox3.Controls.Add(comboBoxColsNames_AIA);
-            groupBox3.Font = new System.Drawing.Font("Sitka Display", 9.749999F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            groupBox3.Location = new Point(358, 0);
-            groupBox3.Margin = new Padding(4);
-            groupBox3.Name = "groupBox3";
-            groupBox3.Padding = new Padding(4);
-            groupBox3.Size = new Size(238, 75);
-            groupBox3.TabIndex = 8;
-            groupBox3.TabStop = false;
-            groupBox3.Text = "Выберите столбец";
+            groupBox5.Text = "Поиск по таблице:";
             // 
             // comboBoxColsNames_AIA
             // 
@@ -329,19 +276,43 @@ namespace Tyuiu.AndreevIA.Sprint7.Project.V2
             comboBoxColsNames_AIA.ForeColor = SystemColors.WindowText;
             comboBoxColsNames_AIA.FormattingEnabled = true;
             comboBoxColsNames_AIA.Items.AddRange(new object[] { "", "Номер филиала", "Название магазина", "Адрес", "Ежемесячная выручка", "Контактный телефон" });
-            comboBoxColsNames_AIA.Location = new Point(7, 36);
+            comboBoxColsNames_AIA.Location = new Point(15, 30);
             comboBoxColsNames_AIA.Margin = new Padding(4);
             comboBoxColsNames_AIA.Name = "comboBoxColsNames_AIA";
             comboBoxColsNames_AIA.Size = new Size(168, 27);
             comboBoxColsNames_AIA.TabIndex = 3;
             comboBoxColsNames_AIA.SelectedIndexChanged += comboBoxColsNames_AIA_SelectedIndexChanged;
             // 
+            // textBoxFilter_AIA
+            // 
+            textBoxFilter_AIA.BackColor = SystemColors.Window;
+            textBoxFilter_AIA.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            textBoxFilter_AIA.Location = new Point(191, 30);
+            textBoxFilter_AIA.Margin = new Padding(4);
+            textBoxFilter_AIA.Name = "textBoxFilter_AIA";
+            textBoxFilter_AIA.Size = new Size(207, 24);
+            textBoxFilter_AIA.TabIndex = 1;
+            textBoxFilter_AIA.TextChanged += textBoxFilter_AIA_TextChanged;
+            // 
+            // buttonFilter_AIA
+            // 
+            buttonFilter_AIA.Enabled = false;
+            buttonFilter_AIA.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            buttonFilter_AIA.Location = new Point(405, 30);
+            buttonFilter_AIA.Margin = new Padding(3, 2, 3, 2);
+            buttonFilter_AIA.Name = "buttonFilter_AIA";
+            buttonFilter_AIA.Size = new Size(72, 27);
+            buttonFilter_AIA.TabIndex = 0;
+            buttonFilter_AIA.Text = "Поиск";
+            buttonFilter_AIA.UseVisualStyleBackColor = true;
+            buttonFilter_AIA.Click += buttonFilter_AIA_Click;
+            // 
             // groupBox1
             // 
             groupBox1.BackColor = SystemColors.Menu;
             groupBox1.Controls.Add(buttonRemoveRows_AIA);
             groupBox1.Controls.Add(buttonAddOrders_AIA);
-            groupBox1.Font = new System.Drawing.Font("Sitka Display", 9.749999F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             groupBox1.Location = new Point(197, 0);
             groupBox1.Margin = new Padding(4);
             groupBox1.Name = "groupBox1";
@@ -359,7 +330,7 @@ namespace Tyuiu.AndreevIA.Sprint7.Project.V2
             buttonRemoveRows_AIA.Enabled = false;
             buttonRemoveRows_AIA.FlatStyle = FlatStyle.Flat;
             buttonRemoveRows_AIA.ForeColor = Color.Black;
-            buttonRemoveRows_AIA.Location = new Point(77, 28);
+            buttonRemoveRows_AIA.Location = new Point(67, 23);
             buttonRemoveRows_AIA.Margin = new Padding(3, 2, 3, 2);
             buttonRemoveRows_AIA.Name = "buttonRemoveRows_AIA";
             buttonRemoveRows_AIA.Size = new Size(45, 38);
@@ -373,7 +344,7 @@ namespace Tyuiu.AndreevIA.Sprint7.Project.V2
             buttonAddOrders_AIA.BackgroundImage = (System.Drawing.Image)resources.GetObject("buttonAddOrders_AIA.BackgroundImage");
             buttonAddOrders_AIA.BackgroundImageLayout = ImageLayout.Center;
             buttonAddOrders_AIA.FlatStyle = FlatStyle.Flat;
-            buttonAddOrders_AIA.Location = new Point(18, 28);
+            buttonAddOrders_AIA.Location = new Point(7, 23);
             buttonAddOrders_AIA.Margin = new Padding(3, 2, 3, 2);
             buttonAddOrders_AIA.Name = "buttonAddOrders_AIA";
             buttonAddOrders_AIA.Size = new Size(43, 38);
@@ -387,7 +358,7 @@ namespace Tyuiu.AndreevIA.Sprint7.Project.V2
             label3.Location = new Point(126, 0);
             label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
-            label3.Size = new Size(0, 21);
+            label3.Size = new Size(0, 13);
             label3.TabIndex = 5;
             label3.Click += label3_Click;
             // 
@@ -396,7 +367,7 @@ namespace Tyuiu.AndreevIA.Sprint7.Project.V2
             groupBox2.BackColor = SystemColors.Menu;
             groupBox2.Controls.Add(buttonDownloadOrders_AIA);
             groupBox2.Controls.Add(buttonOpenOrder_AIA);
-            groupBox2.Font = new System.Drawing.Font("Sitka Display", 9.749999F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             groupBox2.Location = new Point(6, 0);
             groupBox2.Margin = new Padding(4);
             groupBox2.Name = "groupBox2";
@@ -412,7 +383,7 @@ namespace Tyuiu.AndreevIA.Sprint7.Project.V2
             buttonDownloadOrders_AIA.BackgroundImage = (System.Drawing.Image)resources.GetObject("buttonDownloadOrders_AIA.BackgroundImage");
             buttonDownloadOrders_AIA.BackgroundImageLayout = ImageLayout.Center;
             buttonDownloadOrders_AIA.FlatStyle = FlatStyle.Flat;
-            buttonDownloadOrders_AIA.Location = new Point(38, 26);
+            buttonDownloadOrders_AIA.Location = new Point(7, 21);
             buttonDownloadOrders_AIA.Margin = new Padding(3, 2, 3, 2);
             buttonDownloadOrders_AIA.Name = "buttonDownloadOrders_AIA";
             buttonDownloadOrders_AIA.Size = new Size(49, 40);
@@ -426,7 +397,7 @@ namespace Tyuiu.AndreevIA.Sprint7.Project.V2
             buttonOpenOrder_AIA.BackgroundImage = (System.Drawing.Image)resources.GetObject("buttonOpenOrder_AIA.BackgroundImage");
             buttonOpenOrder_AIA.BackgroundImageLayout = ImageLayout.Center;
             buttonOpenOrder_AIA.FlatStyle = FlatStyle.Flat;
-            buttonOpenOrder_AIA.Location = new Point(91, 26);
+            buttonOpenOrder_AIA.Location = new Point(71, 21);
             buttonOpenOrder_AIA.Margin = new Padding(3, 2, 3, 2);
             buttonOpenOrder_AIA.Name = "buttonOpenOrder_AIA";
             buttonOpenOrder_AIA.Size = new Size(49, 40);
@@ -448,7 +419,7 @@ namespace Tyuiu.AndreevIA.Sprint7.Project.V2
             dataGridViewTableOrders_AIA.RowHeadersVisible = false;
             dataGridViewTableOrders_AIA.RowHeadersWidth = 51;
             dataGridViewTableOrders_AIA.RowTemplate.Height = 24;
-            dataGridViewTableOrders_AIA.Size = new Size(1284, 548);
+            dataGridViewTableOrders_AIA.Size = new Size(1284, 556);
             dataGridViewTableOrders_AIA.TabIndex = 1;
             dataGridViewTableOrders_AIA.RowPrePaint += dataGridViewTable_AIA_RowPrePaint;
             // 
@@ -489,25 +460,12 @@ namespace Tyuiu.AndreevIA.Sprint7.Project.V2
             NameOrder_AIA.Resizable = DataGridViewTriState.True;
             NameOrder_AIA.SortMode = DataGridViewColumnSortMode.NotSortable;
             // 
-            // buttonFilter_AIA
-            // 
-            buttonFilter_AIA.Enabled = false;
-            buttonFilter_AIA.Font = new System.Drawing.Font("Sitka Display", 9F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            buttonFilter_AIA.Location = new Point(1086, 16);
-            buttonFilter_AIA.Margin = new Padding(3, 2, 3, 2);
-            buttonFilter_AIA.Name = "buttonFilter_AIA";
-            buttonFilter_AIA.Size = new Size(122, 58);
-            buttonFilter_AIA.TabIndex = 0;
-            buttonFilter_AIA.Text = "Отфильтровать";
-            buttonFilter_AIA.UseVisualStyleBackColor = true;
-            buttonFilter_AIA.Click += buttonFilter_AIA_Click;
-            // 
             // tabControl_AIA
             // 
             tabControl_AIA.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             tabControl_AIA.Controls.Add(tabPageOrderData_AIA);
             tabControl_AIA.Controls.Add(tabPageStats_AIA);
-            tabControl_AIA.Font = new System.Drawing.Font("Sitka Banner", 11.249999F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            tabControl_AIA.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
             tabControl_AIA.Location = new Point(0, 24);
             tabControl_AIA.Margin = new Padding(4);
             tabControl_AIA.Name = "tabControl_AIA";
@@ -546,9 +504,6 @@ namespace Tyuiu.AndreevIA.Sprint7.Project.V2
             groupBoxMovesOrders_AIA.PerformLayout();
             groupBox5.ResumeLayout(false);
             groupBox5.PerformLayout();
-            groupBox4.ResumeLayout(false);
-            groupBox4.PerformLayout();
-            groupBox3.ResumeLayout(false);
             groupBox1.ResumeLayout(false);
             groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridViewTableOrders_AIA).EndInit();
@@ -577,7 +532,6 @@ namespace Tyuiu.AndreevIA.Sprint7.Project.V2
         private System.Windows.Forms.Button buttonDownloadOrders_AIA;
         private System.Windows.Forms.TabControl tabControl_AIA;
         private System.Windows.Forms.Button buttonFilter_AIA;
-        private System.Windows.Forms.TextBox textBoxSearch_AIA;
         private System.Windows.Forms.TextBox textBoxFilter_AIA;
         private System.Windows.Forms.Button buttonRemoveRows_AIA;
         private System.Windows.Forms.ComboBox comboBoxColsNames_AIA;
@@ -589,8 +543,6 @@ namespace Tyuiu.AndreevIA.Sprint7.Project.V2
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.ToolStripMenuItem поддержкаToolStripMenuItem;
         private System.Windows.Forms.Splitter splitter1;
         private DataGridViewTextBoxColumn NumberOrder_AIA;

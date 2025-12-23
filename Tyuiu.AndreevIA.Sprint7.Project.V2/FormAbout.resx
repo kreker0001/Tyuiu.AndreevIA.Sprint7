@@ -117,6 +117,18 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="labelInfo.Text" xml:space="preserve">
+    <value>Разработчик: Андреев И.А
+Группа: РППБ-25-1
+
+Программа разработана в рамках изучения языка C#
+
+Тюменский Индустриальный Университет (с) 2025
+Высшая Школа Цифровых Технологий (с) 2025
+
+Внутреннее имя: Tyuiu.AndreevIA.Sprint7.Project.V2
+</value>
+  </data>
   <metadata name="contextMenuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
@@ -124,7 +136,7 @@
   <data name="pictureBoxAvatar_AIA.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAs4AAAKCCAYAAADBdl87AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wgAADsIBFShKgAAA/7JJREFUeF6s/XWfJet2nYnu79J923a3W22QbUkW2ZZldZvUhpZs60g6DJuKGZKZ
+        wQAADsEBuJFr7QAA/7JJREFUeF6s/XWfJet2nYnu79J923a3W22QbUkW2ZZldZvUhpZs60g6DJuKGZKZ
         uZgxs5KZs7KyGPYu2LzPEbPtvvcLzPt7ZsSINddbK2ufY/uP8YuIN2BBZq58YqzxzvnW5NqMTW/M2ezm
         gmvm9rxNrc8a4+MrU66x5UmbWJ32cY5FU+tzNnV7yaZur1QQ40s2vjbvGl2dtpHlSbu5OO5inbGxtRkX
         69I4j3Fn0eburdjKk02bv79qExtzfs7w0oTd4jmtz/oYz4Pnq+fO89PzRcPzo3ZrcdzHOHZ+a8mWH6zZ

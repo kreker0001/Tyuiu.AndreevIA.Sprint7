@@ -46,14 +46,14 @@ namespace Tyuiu.AndreevIA.Sprint7.Project.V2
             // 
             buttonOK_AIA.BackColor = SystemColors.Menu;
             buttonOK_AIA.FlatStyle = FlatStyle.Flat;
-            buttonOK_AIA.Font = new System.Drawing.Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            buttonOK_AIA.Font = new System.Drawing.Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 204);
             buttonOK_AIA.ForeColor = Color.Black;
-            buttonOK_AIA.Location = new Point(8, 148);
-            buttonOK_AIA.Margin = new Padding(4, 4, 4, 4);
+            buttonOK_AIA.Location = new Point(426, 161);
+            buttonOK_AIA.Margin = new Padding(4);
             buttonOK_AIA.Name = "buttonOK_AIA";
-            buttonOK_AIA.Size = new Size(487, 38);
+            buttonOK_AIA.Size = new Size(69, 25);
             buttonOK_AIA.TabIndex = 1;
-            buttonOK_AIA.Text = "ОКЕЙ";
+            buttonOK_AIA.Text = "ОК";
             buttonOK_AIA.UseVisualStyleBackColor = false;
             buttonOK_AIA.Click += buttonOK_AIA_Click;
             // 
@@ -69,13 +69,14 @@ namespace Tyuiu.AndreevIA.Sprint7.Project.V2
             // labelInfo
             // 
             labelInfo.AutoSize = true;
-            labelInfo.BackColor = SystemColors.Info;
+            labelInfo.BackColor = SystemColors.Window;
             labelInfo.ForeColor = SystemColors.ActiveCaptionText;
-            labelInfo.Location = new Point(132, 10);
+            labelInfo.Location = new Point(151, 14);
             labelInfo.Margin = new Padding(4, 0, 4, 0);
             labelInfo.Name = "labelInfo";
-            labelInfo.Size = new Size(0, 15);
+            labelInfo.Size = new Size(302, 135);
             labelInfo.TabIndex = 4;
+            labelInfo.Text = resources.GetString("labelInfo.Text");
             // 
             // contextMenuStrip1
             // 
@@ -89,7 +90,7 @@ namespace Tyuiu.AndreevIA.Sprint7.Project.V2
             pictureBoxAvatar_AIA.BackgroundImageLayout = ImageLayout.Zoom;
             pictureBoxAvatar_AIA.ErrorImage = null;
             pictureBoxAvatar_AIA.Location = new Point(8, 10);
-            pictureBoxAvatar_AIA.Margin = new Padding(4, 4, 4, 4);
+            pictureBoxAvatar_AIA.Margin = new Padding(4);
             pictureBoxAvatar_AIA.Name = "pictureBoxAvatar_AIA";
             pictureBoxAvatar_AIA.Size = new Size(116, 135);
             pictureBoxAvatar_AIA.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -107,7 +108,7 @@ namespace Tyuiu.AndreevIA.Sprint7.Project.V2
             Controls.Add(labelInfo_AIA);
             Controls.Add(buttonOK_AIA);
             FormBorderStyle = FormBorderStyle.FixedDialog;
-            Margin = new Padding(4, 4, 4, 4);
+            Margin = new Padding(4);
             MaximizeBox = false;
             MaximumSize = new Size(519, 227);
             MinimizeBox = false;

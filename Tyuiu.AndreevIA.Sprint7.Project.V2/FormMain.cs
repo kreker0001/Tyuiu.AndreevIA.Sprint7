@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Linq.Expressions;
@@ -149,14 +150,12 @@ namespace Tyuiu.AndreevIA.Sprint7.Project.V2
 
         private void comboBoxColsNames_AIA_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (comboBoxColsNames_AIA.SelectedIndex != 0)
+            if (comboBoxColsNames_AIA.SelectedIndex != 0 && textBoxFilter_AIA.TextLength != 0)
             {
-                textBoxFilter_AIA.Enabled = true;
                 buttonFilter_AIA.Enabled = true;
             }
             else
             {
-                textBoxFilter_AIA.Enabled = false;
                 buttonFilter_AIA.Enabled = false;
             }
         }
@@ -164,47 +163,86 @@ namespace Tyuiu.AndreevIA.Sprint7.Project.V2
         private void button1_Click(object sender, EventArgs e)
         {
             chart1.Series.Clear();
-            var series = new System.Windows.Forms.DataVisualization.Charting.Series("Ежемесячная выручка");
-            series.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Column;
-            foreach (DataGridViewRow row in this.dataGridViewTableOrders_AIA.Rows)
+            chart1.Titles.Clear();
+
+            var area = chart1.ChartAreas[0];
+            area.AxisX.Interval = 1;
+            area.AxisY.StripLines.Clear();
+
+            var series = new Series("Ежемесячная выручка")
             {
-                if (!row.IsNewRow && row.Cells[3] != null && row.Cells[3].Value != null)
-                {
-                    string label = row.Cells[0].Value.ToString();
-                    double hours = Convert.ToDouble(row.Cells[3].Value);
-                    series.Points.AddXY(label, hours);
-                }
+                ChartType = SeriesChartType.Column,
+                IsXValueIndexed = true,
+                IsValueShownAsLabel = true,
+                LabelFormat = "N0",
+                ToolTip = "#AXISLABEL: #VALY{N0}"
+            };
+
+
+            var values = new List<double>();
+
+            foreach (DataGridViewRow row in dataGridViewTableOrders_AIA.Rows)
+            {
+                if (row.IsNewRow) continue;
+                if (row.Cells[0].Value == null || row.Cells[3].Value == null) continue;
+
+                string label = row.Cells[0].Value.ToString();
+
+
+                double.TryParse(row.Cells[3].Value.ToString(),
+                    NumberStyles.Any, CultureInfo.CurrentCulture, out double revenue);
+                
+
+                int i = series.Points.AddY(revenue);
+                series.Points[i].AxisLabel = label;
+
+                values.Add(revenue);
             }
-            this.chart1.Series.Add(series);
+
+            chart1.Series.Add(series);
+
+            if (values.Count == 0) return;
+
+            int count = values.Count;
+            double sum = values.Sum();
+            double avg = values.Average();
+            double min = values.Min();
+            double max = values.Max();
+
+            chart1.Titles.Add(
+                $"Филиалов: {count}   Сумма: {sum:N0}   Среднее: {avg:N0}   MIN: {min:N0}   MAX: {max:N0}"
+            );
+
+            // 2) Линии-ориентиры (min/avg/max) на оси Y
+            AddYLine(area, avg, "Среднее");
+            AddYLine(area, min, "Min");
+            AddYLine(area, max, "Max");
+
+        }
+
+        private void AddYLine(ChartArea area, double y, string text)
+        {
+            var line = new StripLine
+            {
+                Interval = 0,
+                IntervalOffset = y,
+                StripWidth = 0,
+                BorderWidth = 2,
+                BorderDashStyle = ChartDashStyle.Dash,
+                Text = $"{text}: {y:N0}",
+                TextAlignment = StringAlignment.Far
+            };
+
+            area.AxisY.StripLines.Add(line);
         }
 
         private void toolStripMenuItemInstruction_AIA_Click(object sender, EventArgs e)
         {
-            //FormInstruction formInstruction = new FormInstruction();
-            //formInstruction.ShowDialog();
+            FormInstruction formInstruction = new FormInstruction();
+            formInstruction.ShowDialog();
         }
 
-        private void textBoxSearch_AIA_TextChanged_1(object sender, EventArgs e)
-        {
-            if (textBoxSearch_AIA != null)
-            {
-                string currentText = textBoxSearch_AIA.Text;
-                foreach (DataGridViewRow row in dataGridViewTableOrders_AIA.Rows)
-                {
-                    foreach (DataGridViewCell cell in row.Cells)
-                    {
-                        if (cell.Value != null && textBoxSearch_AIA.Text != string.Empty && cell.Value.ToString().Contains(textBoxSearch_AIA.Text))
-                        {
-                            cell.Style.BackColor = Color.LightGreen;
-                        }
-                        else
-                        {
-                            cell.Style.BackColor = Color.White;
-                        }
-                    }
-                }
-            }
-        }
+
 
         private void toolStripTextBoxSearch_AIA_TextChanged(object sender, EventArgs e)
         {
@@ -246,13 +284,20 @@ namespace Tyuiu.AndreevIA.Sprint7.Project.V2
 
         private void textBoxFilter_AIA_TextChanged(object sender, EventArgs e)
         {
-
+            if (comboBoxColsNames_AIA.SelectedIndex != 0 && textBoxFilter_AIA.TextLength != 0)
+            {
+                buttonFilter_AIA.Enabled = true;
+            }
+            else
+            {
+                buttonFilter_AIA.Enabled = false;
+            }
         }
 
         private void поддержкаToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //FormHelpDevWin formHelpDevWin = new FormHelpDevWin();
-            //formHelpDevWin.ShowDialog();
+            FormHelpDev formHelpDev = new FormHelpDev();
+            formHelpDev.ShowDialog();
         }
 
         private void chart1_Click(object sender, EventArgs e)

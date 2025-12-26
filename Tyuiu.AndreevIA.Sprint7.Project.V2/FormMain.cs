@@ -223,22 +223,6 @@ namespace Tyuiu.AndreevIA.Sprint7.Project.V2
 
 
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelSearch_AIA_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void textBoxFilter_AIA_TextChanged(object sender, EventArgs e)
         {
             if (comboBoxColsNames_AIA.SelectedIndex != 0 && textBoxFilter_AIA.TextLength != 0)
@@ -257,24 +241,6 @@ namespace Tyuiu.AndreevIA.Sprint7.Project.V2
             formHelpDev.ShowDialog();
         }
 
-        private void chart1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click_1(object sender, EventArgs e)
-
-        {
-
-
-        }
-
-        private void button1_Click_2(object sender, EventArgs e)
-        {
-
-        }
-
-
 
 
 
@@ -287,10 +253,7 @@ namespace Tyuiu.AndreevIA.Sprint7.Project.V2
                 this.dataGridViewTableOrders_AIA.Rows[index].HeaderCell.Value = indexStr;
         }
 
-        private void toolStripTextBoxSearch_AIA_Click(object sender, EventArgs e)
-        {
 
-        }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {

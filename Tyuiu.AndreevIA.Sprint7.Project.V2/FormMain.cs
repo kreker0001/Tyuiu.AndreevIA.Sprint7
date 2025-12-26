@@ -51,6 +51,7 @@ namespace Tyuiu.AndreevIA.Sprint7.Project.V2
 
         private void buttonOpen_AIA_Click(object sender, EventArgs e)
         {
+            openFileDialogTable_AIA.FileName = "DataBase.csv";
             openFileDialogTable_AIA.ShowDialog();
             openFilePath = openFileDialogTable_AIA.FileName;
 
@@ -169,13 +170,11 @@ namespace Tyuiu.AndreevIA.Sprint7.Project.V2
             area.AxisX.Interval = 1;
             area.AxisY.StripLines.Clear();
 
-            var series = new Series("Ежемесячная выручка")
+            var series = new Series("Капитал владельцев магазинов")
             {
                 ChartType = SeriesChartType.Column,
                 IsXValueIndexed = true,
                 IsValueShownAsLabel = true,
-                LabelFormat = "N0",
-                ToolTip = "#AXISLABEL: #VALY{N0}"
             };
 
 
@@ -191,7 +190,7 @@ namespace Tyuiu.AndreevIA.Sprint7.Project.V2
 
                 double.TryParse(row.Cells[3].Value.ToString(),
                     NumberStyles.Any, CultureInfo.CurrentCulture, out double revenue);
-                
+
 
                 int i = series.Points.AddY(revenue);
                 series.Points[i].AxisLabel = label;
@@ -210,30 +209,10 @@ namespace Tyuiu.AndreevIA.Sprint7.Project.V2
             double max = values.Max();
 
             chart1.Titles.Add(
-                $"Филиалов: {count}   Сумма: {sum:N0}   Среднее: {avg:N0}   MIN: {min:N0}   MAX: {max:N0}"
+                $"Кол-во магазинов: {count}   Общий капиал: {sum:N0}   Средний капиал: {avg:N0}   Минимальный капиал: {min:N0}   Максимальный капиал: {max:N0}"
             );
 
-            // 2) Линии-ориентиры (min/avg/max) на оси Y
-            AddYLine(area, avg, "Среднее");
-            AddYLine(area, min, "Min");
-            AddYLine(area, max, "Max");
 
-        }
-
-        private void AddYLine(ChartArea area, double y, string text)
-        {
-            var line = new StripLine
-            {
-                Interval = 0,
-                IntervalOffset = y,
-                StripWidth = 0,
-                BorderWidth = 2,
-                BorderDashStyle = ChartDashStyle.Dash,
-                Text = $"{text}: {y:N0}",
-                TextAlignment = StringAlignment.Far
-            };
-
-            area.AxisY.StripLines.Add(line);
         }
 
         private void toolStripMenuItemInstruction_AIA_Click(object sender, EventArgs e)
@@ -243,28 +222,6 @@ namespace Tyuiu.AndreevIA.Sprint7.Project.V2
         }
 
 
-
-        private void toolStripTextBoxSearch_AIA_TextChanged(object sender, EventArgs e)
-        {
-            if (toolStripTextBoxSearch_AIA != null)
-            {
-                string currentText = toolStripTextBoxSearch_AIA.Text;
-                foreach (DataGridViewRow row in dataGridViewTableOrders_AIA.Rows)
-                {
-                    foreach (DataGridViewCell cell in row.Cells)
-                    {
-                        if (cell.Value != null && toolStripTextBoxSearch_AIA.Text != string.Empty && cell.Value.ToString().Contains(toolStripTextBoxSearch_AIA.Text))
-                        {
-                            cell.Style.BackColor = Color.Yellow;
-                        }
-                        else
-                        {
-                            cell.Style.BackColor = Color.White;
-                        }
-                    }
-                }
-            }
-        }
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -329,6 +286,34 @@ namespace Tyuiu.AndreevIA.Sprint7.Project.V2
             if (header == null || !header.Equals(indexStr))
                 this.dataGridViewTableOrders_AIA.Rows[index].HeaderCell.Value = indexStr;
         }
+
+        private void toolStripTextBoxSearch_AIA_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            if (textBoxSearch != null)
+            {
+                string currentText = textBoxSearch.Text;
+                foreach (DataGridViewRow row in dataGridViewTableOrders_AIA.Rows)
+                {
+                    foreach (DataGridViewCell cell in row.Cells)
+                    {
+                        if (cell.Value != null && textBoxSearch.Text != string.Empty && cell.Value.ToString().Contains(textBoxSearch.Text))
+                        {
+                            cell.Style.BackColor = Color.Green;
+                        }
+                        else
+                        {
+                            cell.Style.BackColor = Color.White;
+                        }
+                    }
+                }
+            }
+        }
+
 
     }
 }

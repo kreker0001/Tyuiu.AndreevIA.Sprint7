@@ -40,7 +40,7 @@
             InstructionLabel_AIA.Location = new Point(14, 10);
             InstructionLabel_AIA.Margin = new Padding(4, 0, 4, 0);
             InstructionLabel_AIA.Name = "InstructionLabel_AIA";
-            InstructionLabel_AIA.Size = new Size(481, 165);
+            InstructionLabel_AIA.Size = new Size(402, 150);
             InstructionLabel_AIA.TabIndex = 0;
             InstructionLabel_AIA.Text = resources.GetString("InstructionLabel_AIA.Text");
             InstructionLabel_AIA.TextAlign = ContentAlignment.MiddleLeft;
@@ -50,11 +50,9 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Window;
-            ClientSize = new Size(550, 209);
+            ClientSize = new Size(434, 171);
             Controls.Add(InstructionLabel_AIA);
             Margin = new Padding(4);
-            MaximumSize = new Size(566, 248);
-            MinimumSize = new Size(566, 248);
             Name = "FormInstruction";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Краткое руководство пользователя";

@@ -33,9 +33,9 @@ namespace Tyuiu.AndreevIA.Sprint7.Project.V2
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             saveFileDialogTable_AIA = new SaveFileDialog();
             openFileDialogTable_AIA = new OpenFileDialog();
@@ -45,8 +45,8 @@ namespace Tyuiu.AndreevIA.Sprint7.Project.V2
             toolStripMenuItemAbout_AIA = new ToolStripMenuItem();
             поддержкаToolStripMenuItem = new ToolStripMenuItem();
             tabPageStats_AIA = new TabPage();
-            buttonGetStats_AIA = new Button();
-            chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            buttonCreateChart_AIA = new Button();
+            Сhart_AIA = new System.Windows.Forms.DataVisualization.Charting.Chart();
             tabPageOrderData_AIA = new TabPage();
             groupBoxMovesOrders_AIA = new GroupBox();
             groupBox3 = new GroupBox();
@@ -67,16 +67,16 @@ namespace Tyuiu.AndreevIA.Sprint7.Project.V2
             buttonDownloadOrders_AIA = new Button();
             buttonOpenOrder_AIA = new Button();
             dataGridViewTableOrders_AIA = new DataGridView();
-            tabControl_AIA = new TabControl();
-            splitter1 = new Splitter();
             NumberOrder_AIA = new DataGridViewTextBoxColumn();
             DateDone_AIA = new DataGridViewTextBoxColumn();
             PriceOrder_AIA = new DataGridViewTextBoxColumn();
             CapitalOrder_AIA = new DataGridViewTextBoxColumn();
             PhoneOrder_AIA = new DataGridViewTextBoxColumn();
+            tabControl_AIA = new TabControl();
+            splitter1 = new Splitter();
             menuStrip_AIA.SuspendLayout();
             tabPageStats_AIA.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)chart1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)Сhart_AIA).BeginInit();
             tabPageOrderData_AIA.SuspendLayout();
             groupBoxMovesOrders_AIA.SuspendLayout();
             groupBox3.SuspendLayout();
@@ -134,8 +134,8 @@ namespace Tyuiu.AndreevIA.Sprint7.Project.V2
             // 
             // tabPageStats_AIA
             // 
-            tabPageStats_AIA.Controls.Add(buttonGetStats_AIA);
-            tabPageStats_AIA.Controls.Add(chart1);
+            tabPageStats_AIA.Controls.Add(buttonCreateChart_AIA);
+            tabPageStats_AIA.Controls.Add(Сhart_AIA);
             tabPageStats_AIA.Location = new Point(4, 22);
             tabPageStats_AIA.Margin = new Padding(4);
             tabPageStats_AIA.Name = "tabPageStats_AIA";
@@ -144,40 +144,39 @@ namespace Tyuiu.AndreevIA.Sprint7.Project.V2
             tabPageStats_AIA.Text = "Статистика";
             tabPageStats_AIA.UseVisualStyleBackColor = true;
             // 
-            // buttonGetStats_AIA
+            // buttonCreateChart_AIA
             // 
-            buttonGetStats_AIA.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            buttonGetStats_AIA.Location = new Point(431, 662);
-            buttonGetStats_AIA.Margin = new Padding(4);
-            buttonGetStats_AIA.Name = "buttonGetStats_AIA";
-            buttonGetStats_AIA.Size = new Size(372, 24);
-            buttonGetStats_AIA.TabIndex = 1;
-            buttonGetStats_AIA.Text = "Получить статистику \"Капитал владельцев магазинов\"";
-            buttonGetStats_AIA.UseVisualStyleBackColor = true;
-            buttonGetStats_AIA.Click += button1_Click;
+            buttonCreateChart_AIA.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            buttonCreateChart_AIA.Location = new Point(431, 662);
+            buttonCreateChart_AIA.Margin = new Padding(4);
+            buttonCreateChart_AIA.Name = "buttonCreateChart_AIA";
+            buttonCreateChart_AIA.Size = new Size(372, 24);
+            buttonCreateChart_AIA.TabIndex = 1;
+            buttonCreateChart_AIA.Text = "Получить статистику \"Капитал владельцев магазинов\"";
+            buttonCreateChart_AIA.UseVisualStyleBackColor = true;
+            buttonCreateChart_AIA.Click += buttonCreateChart_AIA_Click;
             // 
-            // chart1
+            // Сhart_AIA
             // 
-            chart1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            chartArea3.Name = "Размер выручки";
-            chart1.ChartAreas.Add(chartArea3);
-            legend3.Name = "Размер выручки";
-            chart1.Legends.Add(legend3);
-            chart1.Location = new Point(10, 4);
-            chart1.Margin = new Padding(4);
-            chart1.Name = "chart1";
-            chart1.RightToLeft = RightToLeft.No;
-            series3.ChartArea = "Размер выручки";
-            series3.Legend = "Размер выручки";
-            series3.MarkerSize = 1;
-            series3.Name = "Размер выручки";
-            series3.XAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
-            series3.YAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
-            chart1.Series.Add(series3);
-            chart1.Size = new Size(1293, 650);
-            chart1.TabIndex = 0;
-            chart1.Text = "Капитал владельцев магазинов";
-            chart1.Click += chart1_Click;
+            Сhart_AIA.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            chartArea2.Name = "Размер выручки";
+            Сhart_AIA.ChartAreas.Add(chartArea2);
+            legend2.Name = "Размер выручки";
+            Сhart_AIA.Legends.Add(legend2);
+            Сhart_AIA.Location = new Point(10, 4);
+            Сhart_AIA.Margin = new Padding(4);
+            Сhart_AIA.Name = "Сhart_AIA";
+            Сhart_AIA.RightToLeft = RightToLeft.No;
+            series2.ChartArea = "Размер выручки";
+            series2.Legend = "Размер выручки";
+            series2.MarkerSize = 1;
+            series2.Name = "Размер выручки";
+            series2.XAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
+            series2.YAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
+            Сhart_AIA.Series.Add(series2);
+            Сhart_AIA.Size = new Size(1293, 650);
+            Сhart_AIA.TabIndex = 0;
+            Сhart_AIA.Text = "Капитал владельцев магазинов";
             // 
             // tabPageOrderData_AIA
             // 
@@ -234,7 +233,7 @@ namespace Tyuiu.AndreevIA.Sprint7.Project.V2
             textBoxSearch.Name = "textBoxSearch";
             textBoxSearch.Size = new Size(273, 24);
             textBoxSearch.TabIndex = 1;
-            textBoxSearch.TextChanged += textBox1_TextChanged;
+            textBoxSearch.TextChanged += textBoxSearch_AIA_TextChanged;
             // 
             // groupBox5
             // 
@@ -365,7 +364,6 @@ namespace Tyuiu.AndreevIA.Sprint7.Project.V2
             label3.Name = "label3";
             label3.Size = new Size(0, 13);
             label3.TabIndex = 5;
-            label3.Click += label3_Click;
             // 
             // groupBox2
             // 
@@ -446,29 +444,6 @@ namespace Tyuiu.AndreevIA.Sprint7.Project.V2
             dataGridViewTableOrders_AIA.RowTemplate.Height = 24;
             dataGridViewTableOrders_AIA.Size = new Size(1284, 556);
             dataGridViewTableOrders_AIA.TabIndex = 1;
-            dataGridViewTableOrders_AIA.RowPrePaint += dataGridViewTable_AIA_RowPrePaint;
-            // 
-            // tabControl_AIA
-            // 
-            tabControl_AIA.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            tabControl_AIA.Controls.Add(tabPageOrderData_AIA);
-            tabControl_AIA.Controls.Add(tabPageStats_AIA);
-            tabControl_AIA.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            tabControl_AIA.Location = new Point(0, 24);
-            tabControl_AIA.Margin = new Padding(4);
-            tabControl_AIA.Name = "tabControl_AIA";
-            tabControl_AIA.SelectedIndex = 0;
-            tabControl_AIA.Size = new Size(1315, 716);
-            tabControl_AIA.TabIndex = 3;
-            // 
-            // splitter1
-            // 
-            splitter1.Location = new Point(0, 24);
-            splitter1.Margin = new Padding(4);
-            splitter1.Name = "splitter1";
-            splitter1.Size = new Size(4, 716);
-            splitter1.TabIndex = 5;
-            splitter1.TabStop = false;
             // 
             // NumberOrder_AIA
             // 
@@ -508,6 +483,28 @@ namespace Tyuiu.AndreevIA.Sprint7.Project.V2
             PhoneOrder_AIA.Resizable = DataGridViewTriState.True;
             PhoneOrder_AIA.SortMode = DataGridViewColumnSortMode.NotSortable;
             // 
+            // tabControl_AIA
+            // 
+            tabControl_AIA.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            tabControl_AIA.Controls.Add(tabPageOrderData_AIA);
+            tabControl_AIA.Controls.Add(tabPageStats_AIA);
+            tabControl_AIA.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            tabControl_AIA.Location = new Point(0, 24);
+            tabControl_AIA.Margin = new Padding(4);
+            tabControl_AIA.Name = "tabControl_AIA";
+            tabControl_AIA.SelectedIndex = 0;
+            tabControl_AIA.Size = new Size(1315, 716);
+            tabControl_AIA.TabIndex = 3;
+            // 
+            // splitter1
+            // 
+            splitter1.Location = new Point(0, 24);
+            splitter1.Margin = new Padding(4);
+            splitter1.Name = "splitter1";
+            splitter1.Size = new Size(4, 716);
+            splitter1.TabIndex = 5;
+            splitter1.TabStop = false;
+            // 
             // FormMain
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -524,7 +521,7 @@ namespace Tyuiu.AndreevIA.Sprint7.Project.V2
             menuStrip_AIA.ResumeLayout(false);
             menuStrip_AIA.PerformLayout();
             tabPageStats_AIA.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)chart1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)Сhart_AIA).EndInit();
             tabPageOrderData_AIA.ResumeLayout(false);
             groupBoxMovesOrders_AIA.ResumeLayout(false);
             groupBoxMovesOrders_AIA.PerformLayout();
@@ -561,8 +558,8 @@ namespace Tyuiu.AndreevIA.Sprint7.Project.V2
         private System.Windows.Forms.TextBox textBoxFilter_AIA;
         private System.Windows.Forms.Button buttonRemoveRows_AIA;
         private System.Windows.Forms.ComboBox comboBoxColsNames_AIA;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
-        private System.Windows.Forms.Button buttonGetStats_AIA;
+        private System.Windows.Forms.DataVisualization.Charting.Chart Сhart_AIA;
+        private System.Windows.Forms.Button buttonCreateChart_AIA;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;

@@ -120,10 +120,6 @@ namespace Tyuiu.AndreevIA.Sprint7.Project.V2
             formAbout.ShowDialog();
         }
 
-        private void toolStripMenuItemExit_AIA_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
 
         private void buttonRemoveRows_AIA_Click(object sender, EventArgs e)
         {
@@ -161,12 +157,12 @@ namespace Tyuiu.AndreevIA.Sprint7.Project.V2
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void buttonCreateChart_AIA_Click(object sender, EventArgs e)
         {
-            chart1.Series.Clear();
-            chart1.Titles.Clear();
+            Сhart_AIA.Series.Clear();
+            Сhart_AIA.Titles.Clear();
 
-            var area = chart1.ChartAreas[0];
+            var area = Сhart_AIA.ChartAreas[0];
             area.AxisX.Interval = 1;
             area.AxisY.StripLines.Clear();
 
@@ -183,7 +179,6 @@ namespace Tyuiu.AndreevIA.Sprint7.Project.V2
             foreach (DataGridViewRow row in dataGridViewTableOrders_AIA.Rows)
             {
                 if (row.IsNewRow) continue;
-                if (row.Cells[0].Value == null || row.Cells[3].Value == null) continue;
 
                 string label = row.Cells[0].Value.ToString();
 
@@ -198,7 +193,7 @@ namespace Tyuiu.AndreevIA.Sprint7.Project.V2
                 values.Add(revenue);
             }
 
-            chart1.Series.Add(series);
+            Сhart_AIA.Series.Add(series);
 
             if (values.Count == 0) return;
 
@@ -208,7 +203,7 @@ namespace Tyuiu.AndreevIA.Sprint7.Project.V2
             double min = values.Min();
             double max = values.Max();
 
-            chart1.Titles.Add(
+            Сhart_AIA.Titles.Add(
                 $"Кол-во магазинов: {count}   Общий капиал: {sum:N0}   Средний капиал: {avg:N0}   Минимальный капиал: {min:N0}   Максимальный капиал: {max:N0}"
             );
 
@@ -242,20 +237,7 @@ namespace Tyuiu.AndreevIA.Sprint7.Project.V2
         }
 
 
-
-
-        private void dataGridViewTable_AIA_RowPrePaint(object sender, DataGridViewRowPrePaintEventArgs e)
-        {
-            int index = e.RowIndex;
-            string indexStr = (index).ToString();
-            object header = this.dataGridViewTableOrders_AIA.Rows[index].HeaderCell.Value;
-            if (header == null || !header.Equals(indexStr))
-                this.dataGridViewTableOrders_AIA.Rows[index].HeaderCell.Value = indexStr;
-        }
-
-
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void textBoxSearch_AIA_TextChanged(object sender, EventArgs e)
         {
             if (textBoxSearch != null)
             {
